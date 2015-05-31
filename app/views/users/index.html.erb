@@ -1,1 +1,5 @@
 <h2>Welcome to the Puppetlabs Education Dashboard </h2>
+
+<% if current_user %>
+Container ID: <%= current_user.container_id %>
+<% end %>

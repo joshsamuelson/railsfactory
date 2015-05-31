@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/' => 'users#index'
 
   get 'signup' => 'users#new'
+  get 'error' => 'users#error'
   resources :users
 
   get 'login' => 'sessions#new'
