@@ -1,0 +1,10 @@
+<h3>Current Ports</h3>
+<table class="table table-striped">
+<% current_user.ports.each do |p| %>
+    <tr>
+      <td><%= current_user.username %>:<%= p.dest_port %></td>
+      <td>localhost:<%= p.id + 10000 %></td>
+    </tr>
+<% end %>
+</table>
+

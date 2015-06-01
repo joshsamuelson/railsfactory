@@ -7,8 +7,7 @@ Rails.application.routes.draw do
 
   get 'term/:container_id' => 'shell#index'
 
-  get 'ports' => 'ports#new'
-  post 'ports' => 'ports#create'
+  get 'ports' => 'ports#index'
   delete 'ports/:port_id' => 'ports#destroy'
 
   get 'login' => 'sessions#new'
