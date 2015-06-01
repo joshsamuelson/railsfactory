@@ -1,0 +1,17 @@
+<h2> Map ports to container </h2>
+
+<h3>Current Ports:</h3>
+<table class="table table-striped">
+<% current_user.ports.each do |p| %>
+    <tr>
+      <td><%= current_user.username %>:<%= p.dest_port %></td>
+      <td>localhost:<%= p.id + 10000 %></td>
+      <td><%= link_to "Delete", 'ports/' + p.id.to_s, method: "delete", type: "button", class: "btn btn-danger" %></td>
+    </tr>
+<% end %>
+</table>
+
+<%= form_for(@port) do |f| %>
+  <%= f.text_field :dest_port, :placeholder => "Destination Port" %>
+  <%= f.submit "Create", class: "btn-submit" %>
+<% end %>

@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   get 'error' => 'users#error'
   resources :users
 
+  get 'term/:container_id' => 'shell#index'
+
+  get 'ports' => 'ports#new'
+  post 'ports' => 'ports#create'
+  delete 'ports/:port_id' => 'ports#destroy'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
 

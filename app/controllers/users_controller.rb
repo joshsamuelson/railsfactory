@@ -11,10 +11,10 @@ class UsersController < ApplicationController
       "Cmd" => ["/sbin/my_init"],
       "Image" => "phusion/baseimage",
     )
+    container.start
     @user = User.new(user_params)
+    @user.update(:container_id => container.json['Id'])
     if @user.save
-      container.start
-      User.update(@user.id, :container_id => container.json['Id'])
       session[:user_id] = @user.id
       redirect_to '/'
     else
