@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     container = Docker::Container.create(
       "Cmd" => ["/sbin/my_init"],
       "Image" => "phusion/baseimage",
+      "ExposedPorts" => {
+        "80/tcp" => [{ "HostPort" => (port_80.id + 10000).to_s}],
+        "8080/tcp" => [{"HostPort" => (port_8080.id + 10000).to_s}]
+      },
       "HostConfig" => {
         "PortBindings" => [
           "80/tcp" => [
